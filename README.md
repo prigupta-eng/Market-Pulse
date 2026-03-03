@@ -45,7 +45,7 @@ A high-performance stock market visualization platform built to demonstrate prof
 
 1.  **Clone the repository**:
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/prigupta-eng/Market-Pulse
     ```
 
 2.  **Environment Variables**: Create a `.env` file in the `/server` directory:
