@@ -70,3 +70,24 @@ A high-performance stock market visualization platform built to demonstrate prof
     npm install
     npm start
     ```
+
+
+
+## 📸 Demo & Screenshots
+
+### Dashboard Overview
+![Main Dashboard Interface](./frontend/src/assets/home.png)
+*The main view showcasing the dynamic sidebar and stock lists.*
+
+### List Creation
+![List Creation Interface](./frontend/src/assets/list_dialog.png)
+*Custom dialog to create list*
+
+### Creating List Manually
+![Manual List creation](./frontend/src/assets/new_list.png)
+*Dialog to create a list with keyword search*
+
+### Data Visualization
+![Stock Charts](./frontend/src/assets/chart.png)
+*Custom AmCharts candlestick integration.*
+
