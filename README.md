@@ -14,13 +14,14 @@ A high-performance stock market visualization platform built to demonstrate prof
 
 **Frontend:**
 * **React**: Component-based UI architecture.
-* **SCSS**: Custom styling using a variables-based architecture without external UI libraries.
-* **D3.js & AmCharts**: Advanced charting and data rendering.
+* **SCSS**: Custom styling using a variables-based architecture.
+* **AmCharts**: Professional financial data visualization.
 
 **Backend:**
 * **Node.js & Express**: Scalable server-side logic.
-* **JWT & Bcrypt**: Secure token-based authentication and password hashing.
+* **JWT & Bcrypt**: Secure authentication and password hashing.
 * **PostgreSQL & Sequelize**: Relational data storage and ORM modeling.
+
 
 ## 📡 API Endpoints
 
@@ -94,22 +95,3 @@ A high-performance stock market visualization platform built to demonstrate prof
 
 
 
-
-## 🛠️ Technical Highlights
-
-* **Secure Authentication**: Implemented a robust security layer using **JWT (JSON Web Tokens)** stored in **httpOnly cookies**.
-* **Advanced Data Visualization**: Integrated **AmCharts** to provide professional-grade candlestick (OHLC) charts with interactive scrollbars and tooltips.
-* **RESTful API Design**: A modular Express backend with clean separation across controllers, routes, and middleware.
-* **Relational Database**: Utilized **PostgreSQL** and **Sequelize ORM** to manage users, watchlists, and ticker items.
-
-## 🚀 Tech Stack
-
-**Frontend:**
-* **React**: Component-based UI architecture.
-* **SCSS**: Custom styling using a variables-based architecture.
-* **AmCharts**: Professional financial data visualization.
-
-**Backend:**
-* **Node.js & Express**: Scalable server-side logic.
-* **JWT & Bcrypt**: Secure authentication and password hashing.
-* **PostgreSQL & Sequelize**: Relational data storage and ORM modeling.
