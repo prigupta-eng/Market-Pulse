@@ -24,12 +24,25 @@ const WatchListItem = sequelize.define('WatchListItem' , {
 },{
     tableName : "watchlist_items",
     timestamps : true,
+
+    indexes: [
+        {
+            unique: true,
+            fields: ['watchlist_id', 'ticker']
+        }
+    ]
 })
 
 
 //setup association
-Watchlist.hasMany(WatchListItem, {foreignKey : "watchlist_id"});
-WatchListItem.belongsTo(Watchlist, {foreignKey : "watchlist_id"})
+Watchlist.hasMany(WatchListItem, {
+    foreignKey : "watchlist_id",
+    onDelete   : "CASCADE",
+    hooks : true});
+
+WatchListItem.belongsTo(Watchlist, {
+    foreignKey : "watchlist_id",
+    onDelete: "CASCADE"})
 
 WatchListItem.belongsTo(stockDataModel, { 
     foreignKey: 'ticker', 

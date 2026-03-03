@@ -25,5 +25,7 @@ const Watchlist = sequelize.define(
     },{
         tableName :"watchlist",
         timestamps : true,
+
+        
     });
     export default Watchlist;

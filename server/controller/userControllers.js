@@ -79,12 +79,12 @@ export async function loginController(req, res) {
         const token = jwt.sign(
             { id: existingUser.id, name: existingUser.name, email: existingUser.email, role: existingUser.role }, 
             secret,
-            {expiresIn : `1h`}
+            {expiresIn : `7d`}
         )
         res.cookie('token', token,{
             httpOnly : true,
             secure  : false,
-            maxAge : 3600000
+            maxAge : 7 * 24 * 60 * 60 * 1000
         });
 
         return res.json({

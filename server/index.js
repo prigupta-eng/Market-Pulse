@@ -12,6 +12,7 @@ import stockRouter from './routes/stockRoutes.js'
 import './models/watchListModel.js'; 
 import './models/watchListItems.js'; 
 import './models/stocksModel.js'
+import './models/stockPriceModel.js'
 
 
 config()
