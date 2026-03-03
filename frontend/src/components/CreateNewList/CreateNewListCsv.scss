@@ -1,0 +1,90 @@
+// components/CreateNewList/CsvUploadStep.scss
+
+$primary-blue: #2196f3;
+$border-color: #e2e8f0;
+$bg-light: #f8fafc;
+$text-main: #1e293b;
+$success-green: #10b981;
+$error-red: #ef4444;
+
+.step-csv {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .alert-error {
+    background-color: rgba($error-red, 0.1);
+    color: $error-red;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border-left: 4px solid $error-red;
+  }
+
+  .alert-success {
+    background-color: rgba($success-green, 0.1);
+    color: darken($success-green, 10%);
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border-left: 4px solid $success-green;
+  }
+
+  /* The Drag & Drop / File Upload Area */
+  .upload-dropzone {
+    border: 2px dashed #cbd5e1;
+    background-color: $bg-light;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:hover {
+      border-color: $primary-blue;
+      background-color: rgba($primary-blue, 0.02);
+    }
+
+    /* Styling the default ugly file input */
+    input[type="file"] {
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: $text-main;
+      
+      &::file-selector-button {
+        background-color: white;
+        border: 1px solid $border-color;
+        padding: 8px 16px;
+        border-radius: 6px;
+        color: $text-main;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        margin-right: 15px;
+
+        &:hover {
+          background-color: #f1f5f9;
+        }
+      }
+    }
+
+    .upload-success-text {
+      margin-top: 15px;
+      color: $success-green;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+
+  .note {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 8px;
+    text-align: center;
+  }
+}

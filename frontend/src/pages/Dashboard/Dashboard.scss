@@ -1,0 +1,345 @@
+// pages/Dashboard/Dashboard.scss
+
+@import '../../styles/variables'; // Adjust path
+
+/* ======================
+   1. LAYOUT WRAPPER & CONTENT
+====================== */
+.layout {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+
+.content {
+  padding: 30px;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+}
+
+/* ======================
+   2. MAIN SIDEBAR
+====================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  background-color: $sidebar-bg;
+  border-right: 1px solid #928f8f;
+  color: #333333;
+  width: 250px;
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+
+  &.closed {
+    width: 80px;
+
+    .menu li span {
+      opacity: 0;
+      width: 0;
+      display: none;
+    }
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    height: 40px;
+  }
+
+  .toggle-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    .arrow {
+      width: 0;
+      height: 0;
+      border-style: solid;
+
+      &.left {
+        border-width: 8px 10px 8px 0;
+        border-color: transparent grey transparent transparent;
+      }
+      &.right {
+        border-width: 8px 0 8px 10px;
+        border-color: transparent transparent transparent grey;
+      }
+    }
+  }
+
+  .menu {
+    list-style: none;
+    padding: 0 10px;
+    margin-top: 1px;
+
+    li {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      margin: 5px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      font-size: 1rem;
+      color: #333;
+
+      &:hover { background-color: #f0f0f0; color: #000; }
+      svg { min-width: 24px; font-size: 1.2rem; }
+      span { margin-left: 15px; font-weight: 500; transition: opacity 0.2s; }
+    }
+  }
+}
+
+/* ======================
+   3. SUB SIDEBAR
+====================== */
+.sub-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 250px;
+  width: 0;
+  overflow: hidden;
+  z-index: 10;
+  background-color: $sub-sidebar-bg;
+  border-right: 1px solid #ccc;
+  transition: width 0.3s ease, left 0.3s ease;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  &.open {
+    width: 320px;
+    padding: 15px 10px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    transition: transform 0.2s ease, color 0.2s ease;
+    z-index: 20;
+
+    &:hover { transform: scale(1.1); color: #000; }
+  }
+
+  .breadcrumbs-container {
+    height: 30px;
+    font-size: 0.9rem;
+    color: #666;
+    padding-left: 5px;
+
+    h3 { margin: 0; padding-top: 5px; font-size: 1.1rem; color: #555; }
+  }
+
+  .divider { height: 1px; background-color: #bcbcbc; margin: 10px 0; }
+
+  .sub-sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 5px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+
+      li {
+        padding: 12px 10px;
+        border-bottom: 1px solid #d5d5d5;
+        cursor: pointer;
+        color: #333;
+        font-weight: 500;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          padding-left: 15px;
+          transition: padding 0.2s, background-color 0.2s;
+        }
+      }
+    }
+  }
+}
+
+/* Reusable Components located inside the Sub-Sidebar */
+.create-list-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 280px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  color: #333;
+  background-color:#ccc ;
+  font-weight: 500;
+  transition: background 0.2s;
+
+  &:hover { background-color: #f0f0f0; }
+  .plus-icon { color: #555; }
+}
+
+.watchlist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+
+  &:hover { background-color: #f5f5f5; }
+  
+  .watchlist-actions {
+    display: flex;
+    gap: 8px;
+    .edit-btn { background: transparent; border: none; color: #4caf50; cursor: pointer; }
+    .delete-btn { background: transparent; border: none; color: #f44336; cursor: pointer; }
+  }
+}
+.stocks-container {
+  padding: 10px;
+}
+
+/* Header Row */
+.stocks-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+  border-bottom: 2px solid #aaa;
+  margin-bottom: 15px;
+
+  div:nth-child(1) { text-align: left; }
+  div:nth-child(2) { text-align: center; }
+  div:nth-child(3) { text-align: right; }
+}
+
+/* Cards Container */
+.stocks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Individual Card */
+.stock-card {
+  background: #f2f2f2;
+  border-radius: 10px;
+  padding: 18px 16px 22px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 6px;
+  position: relative;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+}
+
+/* Top Row */
+.stock-symbol {
+  grid-column: 1;
+  grid-row: 1;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #000;
+}
+
+.stock-price {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.stock-rating {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Rating Variants */
+.stock-rating.bullish {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.stock-rating.bearish {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.stock-rating.neutral {
+  background: #e5e7eb;
+  color: #374151;
+}
+.row-2 {
+  grid-column: 1 / -1; // span full width of parent grid
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #777;
+
+  .stock-name {
+    text-align: left;
+  }
+
+  .instruction {
+    text-align: right;
+    cursor: pointer;
+    color: #555;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+/* Bottom Row */
+
+
+/* ======================
+   4. RESPONSIVE LAYOUT LOGIC
+====================== */
+
+/* A. Main Sidebar CLOSED */
+.sidebar.closed ~ .content { margin-left: 80px; }
+.sidebar.closed + .sub-sidebar { left: 80px; }
+
+/* B. Sub Sidebar OPEN (Main OPEN) */
+.sub-sidebar.open ~ .content { margin-left: 570px; /* 250 + 320 */ }
+
+/* C. Sub Sidebar OPEN (Main CLOSED) */
+.sidebar.closed ~ .sub-sidebar.open ~ .content { margin-left: 400px; /* 80 + 320 */ }

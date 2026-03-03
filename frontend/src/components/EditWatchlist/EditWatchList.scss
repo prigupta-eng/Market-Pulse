@@ -1,0 +1,103 @@
+.edit-watchlist-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.edit-watchlist-modal {
+    background: #ffffff;
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.edit-watchlist-modal h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.name-input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    transition: border 0.2s ease;
+}
+
+.name-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+
+.error-msg {
+    color: #e11d48;
+    font-size: 0.85rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    background: #f3f4f6;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background: #e5e7eb;
+}
+
+.btn-finish {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.btn-finish:hover {
+    background: #4338ca;
+}
+
+.btn-finish:disabled,
+.btn-cancel:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
